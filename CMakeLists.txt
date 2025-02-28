@@ -18,7 +18,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 #add_compile_definitions(QT_NO_DEBUG_ "sig.h"OUTPUT)
 
 #可运行
-add_executable(BaseComponent main.cpp "Singleton.cpp" "SimpleFactory.h" "SimpleFactory.cpp")
+add_executable(BaseComponent main.cpp "Singleton.cpp" "SimpleFactory.h" "SimpleFactory.cpp" "Factory.h" "Factory.cpp")
 
 #库链接
 target_link_libraries(BaseComponent Qt${QT_VERSION_MAJOR}::Core)

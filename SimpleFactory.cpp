@@ -2,34 +2,34 @@
 #include <iostream>
 
 
-void Sheep::animalName()
+void Simple_Sheep::animalName()
 {
 	std::cout << "简单工厂-Sheep" << std::endl;
 }
 
-void Lion::animalName()
+void Simple_Lion::animalName()
 {
 	std::cout << "简单工厂-Lion" << std::endl;
 }
 
-void Monkey::animalName()
+void Simple_Monkey::animalName()
 {
 	std::cout << "简单工厂-Monkey" << std::endl;
 }
 
-Animal* AnimalSimpleFactory::creatAnimal(Type type)
+Simple_Animal* AnimalSimpleFactory::creatAnimal(Type type)
 {
-	Animal* ptr = nullptr;
+	Simple_Animal* ptr = nullptr;
 	switch (type)
 	{
 	case Type::Sheep:
-		ptr = new Sheep;
+		ptr = new Simple_Sheep;
 		break;
 	case Type::Lion:
-		ptr = new Lion;
+		ptr = new Simple_Lion;
 		break;
 	case Type::Monkey:
-		ptr = new Monkey;
+		ptr = new Simple_Monkey;
 		break;
 	default:
 		break;

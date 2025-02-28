@@ -1,23 +1,25 @@
 ﻿#ifndef SIMPLEFACTORY
 #define SIMPLEFACTORY
 
-class Animal
+//产品基类
+class Simple_Animal
 {
 public:
 	virtual void animalName() = 0;
-	virtual ~Animal() {};   //虚析构函数 析构子类
+	virtual ~Simple_Animal() {};   //虚析构函数 析构子类
 };
-class Sheep :public Animal
+//各种子类产品
+class Simple_Sheep :public Simple_Animal
 {
 public:
 	void animalName()override;
 };
-class Lion :public Animal
+class Simple_Lion :public Simple_Animal
 {
 public:
 	void animalName()override;
 };
-class Monkey :public Animal
+class Simple_Monkey :public Simple_Animal
 {
 public:
 	void animalName()override;
@@ -33,7 +35,7 @@ enum class Type :char {
 class AnimalSimpleFactory
 {
 public:
-	Animal* creatAnimal(Type type);
+	Simple_Animal* creatAnimal(Type type);
 };
 
 #endif // !SIMPLEFACTORY
