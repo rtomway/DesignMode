@@ -1,9 +1,11 @@
 ﻿#include <QCoreApplication>
 #include <windows.h>
+#include <memory>
 
 #include "Singleton.h"
 #include "SimpleFactory.h"
 #include "Factory.h"
+#include "AbstractFactory.h"
 
 
 int main(int argc, char *argv[])
@@ -35,6 +37,17 @@ int main(int argc, char *argv[])
     AnimalFactory* monkeyFactory = new MonkeyFactory; //建立特定动物工厂
     Animal* monkey = monkeyFactory->creatAnimal();  //生产该动物
     monkey->animalName();
+
+    //抽象工厂模式   对于复杂组成的类型  主体由各个部件类组成
+    std::unique_ptr<AbstractFactory> basicFactory = std::make_unique<BasicFactory>();
+    std::unique_ptr<Ship> basicShip = basicFactory->createShip();
+    basicShip->getProperty();
+    std::unique_ptr<AbstractFactory> standardFactory = std::make_unique<StandardFactory>();
+    std::unique_ptr<Ship> standardShip = standardFactory->createShip();
+    standardShip->getProperty();
+    std::unique_ptr<AbstractFactory> ultimataFactory = std::make_unique<UltimataFactory>();
+    std::unique_ptr<Ship> ultimataShip = ultimataFactory->createShip();
+    ultimataShip->getProperty();
 
     return a.exec();
 }
