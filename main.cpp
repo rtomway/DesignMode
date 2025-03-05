@@ -6,6 +6,7 @@
 #include "SimpleFactory.h"
 #include "Factory.h"
 #include "AbstractFactory.h"
+#include "Facade.h"
 
 
 int main(int argc, char *argv[])
@@ -49,6 +50,12 @@ int main(int argc, char *argv[])
     std::unique_ptr<Ship> ultimataShip = ultimataFactory->createShip();
     ultimataShip->getProperty();
 
+    //外观模式 为各个子系统提供高级接口 便于客户端调用
+    HomeTheaterFacade facade;   //高级接口类
+    facade.onKTVMode();    
+    facade.offKTVMode();
+    facade.onGameMode();
+    facade.offGameMode();
     return a.exec();
 }
 
